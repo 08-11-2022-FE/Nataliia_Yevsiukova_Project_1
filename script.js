@@ -42,12 +42,20 @@ if (isMobile.any()) {
    document.body.classList.add("_pc");
 }
 //menu-burger
-
+const menuBody = document.querySelector(".menu__body");
 const menuIcon = document.querySelector(".menu__icon");
 if (menuIcon) {
-  const menuBody = document.querySelector(".menu__body");
   menuIcon.addEventListener("click", function (e) {
     menuIcon.classList.toggle("_active");
     menuBody.classList.toggle("_active");
   });
+}
+const menuLinks = document.querySelectorAll(".link");
+if (menuLinks.length > 0) {
+  menuLinks.forEach(menuLink => {
+    menuLink.addEventListener("click", function (e) {
+      menuIcon.classList.remove("_active");
+      menuBody.classList.remove("_active");
+    });
+  })
 }
